@@ -405,11 +405,6 @@ class NBT{
 		$this->read(zlib_decode($buffer));
 	}
 
-	public function readNetworkCompressed($buffer){
-		$this->read(zlib_decode($buffer), false, true);
-	}
-
-
 	/**
 	 * @param bool $network
 	 *
@@ -435,14 +430,6 @@ class NBT{
 
 	public function writeCompressed($compression = ZLIB_ENCODING_GZIP, $level = 7){
 		if(($write = $this->write()) !== false){
-			return zlib_encode($write, $compression, $level);
-		}
-
-		return false;
-	}
-
-	public function writeNetworkCompressed($compression = ZLIB_ENCODING_GZIP, $level = 7){
-		if(($write = $this->write(true)) !== false){
 			return zlib_encode($write, $compression, $level);
 		}
 
