@@ -531,6 +531,15 @@ abstract class Entity extends Location implements Metadatable{
 	public function setCanClimbWalls(bool $value = true){
 		$this->setDataFlag(self::DATA_FLAGS, self::DATA_FLAG_WALLCLIMBING, $value);
 	}
+	
+	/**
+	 * Returns whether this entity is a player.
+	 *
+	 * @return bool
+	 */
+	public function isPlayer() : bool{
+		return $this->isPlayer;
+	}
 
 	/**
 	 * Returns the entity ID of the owning entity, or null if the entity doesn't have an owner.
